@@ -1,0 +1,16 @@
+.SearchInputContainer {
+  line-height: 4;
+  display: flex;
+}
+
+.SearchInput {
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  width: 60vw;
+  padding: 10px;
+  line-height: 30px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid white;
+  background-color: #febf34;
+}

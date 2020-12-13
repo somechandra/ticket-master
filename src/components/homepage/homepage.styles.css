@@ -1,0 +1,23 @@
+.flex-container {
+  display: flex;
+  margin-top: 30px;
+}
+
+.flex-child {
+  flex: 1;
+  border: 2px solid yellow;
+}
+
+.flex-child:first-child {
+  margin-right: 20px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.search-input-caption {
+  text-align: left;
+  color: #cdcdcd;
+  margin-top: -30px;
+}
