@@ -30,7 +30,6 @@ class Homepage extends React.Component {
 
   handleChange = (e) => {
     this.setState({ searchField: e.target.value });
-    console.log(e.target.value);
     this.getResults(e.target.value);
   };
 
