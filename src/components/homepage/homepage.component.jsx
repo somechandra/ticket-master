@@ -2,6 +2,7 @@ import React from "react";
 
 import SearchInput from "../search-input/search-input.component";
 import ResultItem from "../result-items/result-items.component";
+import ErrorBoundary from "../error-boundary/error-boundary.component";
 
 import "./homepage.styles.css";
 
@@ -43,28 +44,32 @@ class Homepage extends React.Component {
     }
     return (
       <div>
-        <SearchInput
-          handleChange={this.handleChange}
-          placeholder="Enter any keywords"
-        />
-        <div className="search-input-caption">
-          Ex. (Type these words for example): "ticket", "universe",
-          "ticketmaster" etc...
-        </div>
-        <div className="flex-container">
-          <div className="flex-child magenta">
-            <div className="title">Results</div>
-            {this.state.records.length > 0 && (
-              <ResultItem records={this.state.records} />
-            )}
+        <ErrorBoundary>
+          <SearchInput
+            handleChange={this.handleChange}
+            placeholder="Enter any keywords"
+          />
+          <div className="search-input-caption">
+            Ex. (Type these words for example): "ticket", "universe",
+            "ticketmaster" etc...
           </div>
-          <div className="flex-child green">
-            <div className="title">Histories</div>
-            {updatedHistories.length > 0
-              ? updatedHistories.map((name, idx) => <div key={idx}>{name}</div>)
-              : null}
+          <div className="flex-container">
+            <div className="flex-child magenta">
+              <div className="title">Results</div>
+              {this.state.records.length > 0 && (
+                <ResultItem records={this.state.records} />
+              )}
+            </div>
+            <div className="flex-child green">
+              <div className="title">Histories</div>
+              {updatedHistories.length > 0
+                ? updatedHistories.map((name, idx) => (
+                    <div key={idx}>{name}</div>
+                  ))
+                : null}
+            </div>
           </div>
-        </div>
+        </ErrorBoundary>
       </div>
     );
   }
